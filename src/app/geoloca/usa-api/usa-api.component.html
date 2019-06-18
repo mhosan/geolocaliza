@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-auto">
+      <nav class="navbar navbar-expand-lg navbar-ligth ubicacion" style='background-color: white;'>
+        <ul class="navbar-nav mr-auto" (keydown)="keyDownFunction($event)">
+          <li class="nav-item">
+            <input class="form-control" #direbuscar type="text" placeholder="Direcc. a geolocalizar (enter)" [(ngModel)]="valorTexto"
+              aria-label="Search" style="font-size: small;" />
+          </li>
+          <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+            (click)="buscaLugar(direbuscar.value)">Buscar</button> -->
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <ul class="list-group" >
+      <button type="button" class="list-group-item list-group-item-action" (click)="atajar($event)"
+        *ngFor="let item of listado; let i = index;">{{i}} - {{item}}</button>
+    </ul>
+  </div>
+</div>
