@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { BuscadorService} from '../buscador.service';
 import { IBuscador } from '../buscador.interface';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -9,7 +9,7 @@ import { throwError } from 'rxjs';
   templateUrl: './barra-navegacion.component.html',
   styleUrls: ['./barra-navegacion.component.css']
 })
-export class BarraNavegacionComponent implements OnInit {
+export class BarraNavegacionComponent {
   @Output() miEvento = new EventEmitter<string>();
   public respuestas: IBuscador[];
   vaciar: boolean;
@@ -22,15 +22,10 @@ export class BarraNavegacionComponent implements OnInit {
   public show: boolean = false;
   public errorDescrip: string = '';
   public error: boolean = false;
-  
 
-  constructor(private buscadorService: BuscadorService) { 
-  }
-  ngOnInit() {   
-  }
-  recargar() {
-    location.reload();
-  }
+  constructor(private buscadorService: BuscadorService) {}
+  recargar() {location.reload();}
+
   /*============================================================================*/
   private handleError(error: HttpErrorResponse) {
   /*============================================================================*/  
@@ -54,14 +49,13 @@ export class BarraNavegacionComponent implements OnInit {
         );
     }
     // return an observable with a user-facing error message
-    return throwError(
-      'Something bad happened; please try again later.');
+    return throwError('Algo salió mal, por favor intentar en unos instantes.');
   };
 
   /*============================================================================*/
-  tecla(event: any) {
+  tecla(event: any) {                                       // el texto ingresado
   /*============================================================================*/
-    this.contenido = event.target.value;                  // el texto ingresado
+    this.contenido = event.target.value;                  
     if (this.contenido === "") {
       this.vaciar = true;
       this.respuestas = [];
@@ -81,8 +75,9 @@ export class BarraNavegacionComponent implements OnInit {
         });                                               // lista desplegable
     }
   }
+
   /*============================================================================*/
-  atajarListaBuscar(event: any){
+  atajarListaBuscar(event: any){                          //seleccion de la lista desplegable con todos los resultados
   /*============================================================================*/
     const textoSeleccionado = event.currentTarget.childNodes[0].data;
     const spliteado = textoSeleccionado.split(":");
@@ -109,6 +104,7 @@ export class BarraNavegacionComponent implements OnInit {
       }
     }
   }
+  
   /*============================================================================*/
   busquedasGuardadas(event: any){
   /*============================================================================*/

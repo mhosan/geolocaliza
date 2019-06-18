@@ -1,17 +1,17 @@
 <div id="map" class="container-fluid">
     <div class="row">
-        <button class="btn btn-info collapsed" style="z-index: 2000; position:relative; top: 1rem;" data-toggle="collapse" data-target="#fila">
-                <i class="fa fa-search"></i>
+        <button class="btn btn-info collapsed" style="z-index: 2000; position:relative; top: 1rem;"
+            data-toggle="collapse" data-target="#fila">
+            <i class="fa fa-search"></i>
         </button>
     </div>
-    
+
     <div class="collapse row no-gutters" id="fila" style="position: relative; left:1.5rem; top: -2rem;">
-        <div class="col-md-auto" style="z-index: 2000;">
-            <app-barra-navegacion (miEvento)="agregarCapa($event)" style="position: relative; left:-1rem;">
-            </app-barra-navegacion>
-        </div>
+        <!-- <div class="col-md-auto" style="z-index: 2000;">
+            <app-barra-navegacion (miEvento)="agregarCapa($event)" style="position: relative; left:-1rem;"></app-barra-navegacion>
+        </div> -->
         <div class="col-md-auto" style="z-index: 2000; ">
-            <app-usa-api (eventoMarcador)="ponerMarcador($event)" style="position:relative; left:-4rem;"></app-usa-api>
+            <app-usa-api (eventoMarcador)="ponerMarcador($event)" style="position:relative; left:-1rem;"></app-usa-api>
         </div>
     </div>
 </div>

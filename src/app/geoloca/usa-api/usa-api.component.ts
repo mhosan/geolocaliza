@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GeolocaService } from '../geoloca.service';
 import { LatitudLongitud } from 'src/app/mapa/latlon.interface';
+import { IBuscador } from 'src/app/buscador/buscador.interface';
+
 
 @Component({
   selector: 'app-usa-api',
@@ -12,6 +14,9 @@ export class UsaApiComponent implements OnInit {
   public coordenadas: any[] = [];
   public latLon : LatitudLongitud;
   public valorTexto = '';
+  vectorBusquedasGuardadas: IBuscador[] = [];
+  vectorBusquedas: string[] = [];
+  public contador: number = 0;
   @Output() eventoMarcador = new EventEmitter<LatitudLongitud>();
       
   constructor(private buscaDirecc: GeolocaService) { }
@@ -71,16 +76,47 @@ export class UsaApiComponent implements OnInit {
     const lati: number = parseFloat(latiString);
     const long: number = parseFloat(longString);
     this.latLon = {lat : lati, lon : long, texto : textoParaPopup};
-    
+    this.contador = this.contador + 1;
+    this.vectorBusquedas.push(textoParaPopup);   //ojo, en este vector se guarda solo el string seleccionado de la lista desplegable
+
     this.eventoMarcador.emit(this.latLon);
     
+    let unaRespuesta: IBuscador = { 
+       epsg: '', 
+       categoria: '', 
+       origin: '', 
+       geometry: latLonJuntos,
+       nombre: textoParaPopup
+    };
+    this.vectorBusquedasGuardadas.push(unaRespuesta);                         //en este vector se guarda el json de la respuesta seleccionada y mostrada en el mapa 
+    console.log('vector busquedas guardadas:', this.vectorBusquedasGuardadas);
     this.listado=[];
     this.coordenadas=[];
     this.valorTexto = '';
   }
+
   keyDownFunction(event){
     if(event.keyCode == 13) {
       this.buscaLugar(this.valorTexto);
+    }
+  }
+
+  /*============================================================================*/
+  busquedasGuardadas(event: any){
+  /*============================================================================*/
+    const textoSeleccionado = event.currentTarget.childNodes[0].data;
+    const spliteado = textoSeleccionado.split("-");
+    const direccion = spliteado[1].trim();
+    for (let ocurrencia of this.vectorBusquedasGuardadas){
+      if (ocurrencia.nombre==direccion){
+        const coordsSpliteadas = ocurrencia.geometry.split(",");
+        const latiString = coordsSpliteadas[0].trim();
+        const longString = coordsSpliteadas[1].trim();
+        const lati: number = parseFloat(latiString);
+        const long: number = parseFloat(longString);
+        this.latLon = {lat : lati, lon : long, texto : direccion};
+        this.eventoMarcador.emit(this.latLon);
+      }
     }
   }
 }
