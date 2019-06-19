@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { LatitudLongitud } from './latlon.interface';
+import { LatitudLongitud } from '../modelos/latlon.interface';
 
 declare let L;
 let miMapa;

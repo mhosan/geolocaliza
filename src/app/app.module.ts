@@ -4,9 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 
-import { MapaComponent } from './mapa/mapa.component';
-import { BarraNavegacionComponent } from './buscador/barra-navegacion/barra-navegacion.component';
-import { BuscadorService } from './buscador/buscador.service';
+import { MapaComponent } from './mapa/mapa.component'
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { UsaApiComponent } from './geoloca/usa-api/usa-api.component';
 import { WebappComponent } from './webapp/webapp.component';
@@ -15,7 +13,6 @@ import { GeolocaApiSecrModernService } from './servicios/geoloca-api-secr-modern
 @NgModule({
   declarations: [
     AppComponent,
-    BarraNavegacionComponent,
     MapaComponent,
     UsaApiComponent,
     WebappComponent,
@@ -27,7 +24,6 @@ import { GeolocaApiSecrModernService } from './servicios/geoloca-api-secr-modern
     AngularFontAwesomeModule
   ],
   providers: [
-    BuscadorService,
     GeolocaApiSecrModernService
   ],
   bootstrap: [AppComponent]

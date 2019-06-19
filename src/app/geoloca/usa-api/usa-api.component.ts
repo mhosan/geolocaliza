@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { LatitudLongitud } from 'src/app/mapa/latlon.interface';
-import { IBuscador } from 'src/app/buscador/buscador.interface';
+import { LatitudLongitud } from 'src/app/modelos/latlon.interface';
 import { GeolocaApiSecrModernService } from 'src/app/servicios/geoloca-api-secr-modern.service';
+import { IBuscador } from 'src/app/modelos/buscador.interface';
 
 
 @Component({
