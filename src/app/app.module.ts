@@ -7,10 +7,10 @@ import { AppComponent } from './app.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { BarraNavegacionComponent } from './buscador/barra-navegacion/barra-navegacion.component';
 import { BuscadorService } from './buscador/buscador.service';
-import { GeolocaService } from './geoloca/geoloca.service';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { UsaApiComponent } from './geoloca/usa-api/usa-api.component';
 import { WebappComponent } from './webapp/webapp.component';
+import { GeolocaApiSecrModernService } from './servicios/geoloca-api-secr-modern.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { WebappComponent } from './webapp/webapp.component';
   ],
   providers: [
     BuscadorService,
-    GeolocaService
+    GeolocaApiSecrModernService
   ],
   bootstrap: [AppComponent]
 })

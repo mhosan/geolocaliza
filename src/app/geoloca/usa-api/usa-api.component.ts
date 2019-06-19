@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { GeolocaService } from '../geoloca.service';
 import { LatitudLongitud } from 'src/app/mapa/latlon.interface';
 import { IBuscador } from 'src/app/buscador/buscador.interface';
+import { GeolocaApiSecrModernService } from 'src/app/servicios/geoloca-api-secr-modern.service';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class UsaApiComponent implements OnInit {
   public contador: number = 0;
   @Output() eventoMarcador = new EventEmitter<LatitudLongitud>();
       
-  constructor(private buscaDirecc: GeolocaService) { }
+  constructor(private buscaDirecc: GeolocaApiSecrModernService) { }
   ngOnInit() {
   }
 

@@ -52,3 +52,4 @@ export interface IGeoloca {
     inicio: number;
     total: number;
 }
+

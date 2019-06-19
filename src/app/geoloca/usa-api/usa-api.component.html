@@ -1,30 +1,24 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-auto">
-
-      <nav class="navbar navbar-expand-lg navbar-ligth ubicacion" style='background-color: white;'>
+      <nav class="navbar navbar-expand-lg navbar-ligth mt-2 ml-2" style='background-color: white; height: 2.5rem;'>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <a class="navbar-brand" href="#">Argengis</a>
+          <a class="navbar-brand" style="font-size:medium;" href="#">Buscador</a>
           <!-- bloque para seleccionar busquedas guardadas -->
-          <!-- <li class="nav-item dropdown"> -->
-            <a class="nav-link dropdown-toggle" style='width:10rem;' href="#" id="navbarDropdown" role="button"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Busquedas&nbsp; <span class="badge badge-pill badge-info">{{contador}}</span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#" *ngFor="let busqueda of vectorBusquedas; let i = index;"
-                (click)="busquedasGuardadas($event)" style="font-size: small;">{{i}} - {{busqueda}}</a>
-            </div>
-          <!-- </li> -->
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            &nbsp; <span class="badge badge-pill badge-info">{{contador}}</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" *ngFor="let busqueda of vectorBusquedas; let i = index;"
+              (click)="busquedasGuardadas($event)" style="font-size: small;">{{i}} - {{busqueda}}</a>
+          </div>
           <!-- bloque para seleccionar busquedas guardadas -->
-
-          <ul class="navbar-nav mr-auto" (keydown)="keyDownFunction($event)">
-            <input class="form-control mr-sm-2" #direbuscar type="text" placeholder="Direcc. a geolocalizar (enter)"
-              [(ngModel)]="valorTexto" aria-label="Search" style="font-size: small;" />
-            <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
-            (click)="buscaLugar(direbuscar.value)">Buscar</button> -->
-
-          </ul>
+          <input class="form-control mr-sm-2" #direbuscar type="text" placeholder="Direcc. a geolocalizar"
+            [(ngModel)]="valorTexto" aria-label="Search" (keydown)="keyDownFunction($event)"
+            style="font-size: small; max-width: 10rem; max-height: 2rem;" />
+          <button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit"
+            (click)="buscaLugar(direbuscar.value)">Buscar</button>
         </div>
       </nav>
     </div>
