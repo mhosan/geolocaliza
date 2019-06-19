@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 
 import { MapaComponent } from './mapa/mapa.component'
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { UsaApiComponent } from './geoloca/usa-api/usa-api.component';
+import { UsaApiComponent } from './geoloca/usa-api-secr-modern/usa-api.component';
 import { WebappComponent } from './webapp/webapp.component';
 import { GeolocaApiSecrModernService } from './servicios/geoloca-api-secr-modern.service';
 
