@@ -1,7 +1,7 @@
 <div id="map" class="container-fluid">
     <div class="row">
         <button class="btn btn-info collapsed" style="z-index: 2000; position:relative; top: 1rem;"
-            data-toggle="collapse" data-target="#fila">
+            data-toggle="collapse" data-target="#fila">  <!-- este boton colapsador colapsa al div con id=fila (mas abajo)-->       
             <i class="fa fa-search"></i>
         </button>
     </div>
@@ -10,5 +10,10 @@
         <div class="col-md-auto" style="z-index: 2000; ">
             <app-usa-api (eventoMarcador)="ponerMarcador($event)" style="position:relative; left:-1rem;"></app-usa-api>
         </div>
+        <div class="col-md-auto" style="z-index: 2000; ">
+            <app-usa-api-location-iq (eventoMarcador)="ponerMarcador($event)" style="position:relative; left:-5rem;"></app-usa-api-location-iq>
+        </div>
     </div>
 </div>
+
+

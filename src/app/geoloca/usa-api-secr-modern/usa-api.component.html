@@ -3,7 +3,7 @@
     <div class="col-md-auto">
       <nav class="navbar navbar-expand-lg navbar-ligth mt-2 ml-2" style='background-color: white; height: 2.5rem;'>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <a class="navbar-brand" style="font-size:medium;" href="#">Buscador</a>
+          <a class="navbar-brand" style="font-size:medium;" href="#">Busca</a>
           <!-- bloque para seleccionar busquedas guardadas -->
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -14,7 +14,7 @@
               (click)="busquedasGuardadas($event)" style="font-size: small;">{{i}} - {{busqueda}}</a>
           </div>
           <!-- bloque para seleccionar busquedas guardadas -->
-          <input class="form-control mr-sm-2" #direbuscar type="text" placeholder="Direcc. a geolocalizar"
+          <input class="form-control mr-sm-2" #direbuscar type="text" placeholder="Geoloc. c/Secr.Modern."
             [(ngModel)]="valorTexto" aria-label="Search" (keydown)="keyDownFunction($event)"
             style="font-size: small; max-width: 10rem; max-height: 2rem;" />
           <button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit"
