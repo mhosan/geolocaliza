@@ -1,3 +1,8 @@
+/* 
+Este componente utiliza la api de la secretaria de modernización de presidencia de la nacion:
+https://datos.gob.ar/apis
+*/
+
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LatitudLongitud } from 'src/app/modelos/latlon.interface';
 import { GeolocaApiSecrModernService } from 'src/app/servicios/geoloca-api-secr-modern.service';
