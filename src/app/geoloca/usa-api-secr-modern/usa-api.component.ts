@@ -22,6 +22,7 @@ export class UsaApiComponent implements OnInit {
   vectorBusquedasGuardadas: IBuscador[] = [];
   vectorBusquedas: string[] = [];
   public contador: number = 0;
+  public infoBuscar = 'Buscar con API Secretaria de Modernización https://datos.gob.ar/apis';
   @Output() eventoMarcador = new EventEmitter<LatitudLongitud>();
       
   constructor(private buscaDirecc: GeolocaApiSecrModernService) { }

@@ -3,22 +3,28 @@
     <div class="col-md-auto">
       <nav class="navbar navbar-expand-lg navbar-ligth mt-2 ml-2" style='background-color: white; height: 2.5rem;'>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <a class="navbar-brand" style="font-size:medium;" href="#">Busca</a>
+          <a class="navbar-brand" style="font-size:medium;" href="#">Geolocalizar</a>
+
           <!-- bloque para seleccionar busquedas guardadas -->
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            &nbsp; <span class="badge badge-pill badge-info">{{contador}}</span>
+            &nbsp; 
+            <!-- <span class="badge badge-pill badge-info">?</span> -->
+            <span class="badge badge-pill badge-info">{{contador}}</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#" *ngFor="let busqueda of vectorBusquedas; let i = index;"
               (click)="busquedasGuardadas($event)" style="font-size: small;">{{i}} - {{busqueda}}</a>
           </div>
           <!-- bloque para seleccionar busquedas guardadas -->
-          <input class="form-control mr-sm-2" #direbuscar type="text" placeholder="Geoloc. c/Secr.Modern."
+
+          <input class="form-control mr-sm-2" #direbuscar type="text" placeholder="Secr.Modern."
             [(ngModel)]="valorTexto" aria-label="Search" (keydown)="keyDownFunction($event)"
-            style="font-size: small; max-width: 10rem; max-height: 2rem;" />
-          <button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit"
-            (click)="buscaLugar(direbuscar.value)">Buscar</button>
+            style="font-size: small; max-width: 10rem; max-height: 2rem; border-color: #0dc6df;"
+            data-toggle="tooltip" data-placement="top" title={{infoBuscar}}>
+
+          <button class="btn btn-sm btn-outline-info my-2 my-sm-0" type="submit" (click)="buscaLugar(direbuscar.value)"
+            data-toggle="tooltip" data-placement="top" title={{infoBuscar}}>Buscar</button>
         </div>
       </nav>
     </div>
