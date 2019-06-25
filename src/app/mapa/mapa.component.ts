@@ -18,26 +18,40 @@ export class MapaComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
         const osm1 = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
           attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
           '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
           'Imagery © <a href="http://mapbox.com">Mapbox</a>',
           id: 'mapbox.streets'});
+        
         const openmap = L.tileLayer("http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {
           attribution: 'terms and feedback'
         });
+
         const osm2 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 20});
+
         const googleMaps = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
         maxZoom: 20,
         subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
         detectRetina: true
         });
+
         const googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
         maxZoom: 20,
         subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
         detectRetina: true
         });
+
+        //let urlBing2 ="http://ecn.t3.tiles.virtualearth.net/tiles/a{q}.jpeg?g=0&amp;dir=dir_n&username=''";         
+        //let urlBing ="http://ecn.t3.tiles.virtualearth.net/tiles/a{q}.jpeg?g=1";
+        //const bing = L.tileLayer(urlBing2);
         
+        const esriSat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        {maxZoom: 22});
+
+        const esriTransportes = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}');
+
         miMapa = L.map('map', {
           contextmenu: true,
           contextmenuWidth: 180,
@@ -73,9 +87,12 @@ export class MapaComponent implements OnInit {
           "Google Satelital": googleSatelite, */
           "Open Street Map": osm2,
           "Mapbox": osm1,
-          "ArcGis OnLine": openmap,
           "Google callejero ": googleMaps,
-          "Google hibrido": googleHybrid
+          "Google hibrido": googleHybrid,
+          //"Bing": bing,
+          "ArcGis OnLine": openmap,
+          "Esri sat": esriSat,
+          "Esri transportes":esriTransportes
       };
       var overlayMaps = {
           //"Capa Cursos": capaCursos
