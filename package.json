@@ -25,7 +25,7 @@
     "@types/proj4": "^2.5.0",
     "angular-font-awesome": "^3.1.2",
     "awesome": "0.0.7",
-    "bootstrap": "^4.2.1",
+    "bootstrap": "^4.3.1",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.4",
     "firebase-tools": "^7.0.0",
